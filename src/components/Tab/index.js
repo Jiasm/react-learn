@@ -5,13 +5,13 @@ class Tab extends Component {
   render () {
     const {itemList} = this.props
     return (
-      <div>
+      <ul>
         {
           itemList.map((item, index) =>
             (<TabItem {...item} key={index} />)
           )
         }
-      </div>
+      </ul>
     )
   }
 }

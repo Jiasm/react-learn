@@ -5,7 +5,7 @@ import Tab from './components/Tab'
 import { hashHistory, Router, Route, IndexRoute, Link, withRouter } from 'react-router'
 
 var t = ({children}) => (
-  <Title text={123}>
+  <Title text={'hello world'}>
     {children}
   </Title>
 )
@@ -13,7 +13,7 @@ var t = ({children}) => (
 render((
   <Router history={hashHistory}>
     <Route path="/" component={t} >
-      <IndexRoute component={() => (<Tab itemList={[1, 2]} />)}/>
+      <IndexRoute component={() => (<Tab itemList={[{text: 1}, {text: 2}]} />)}/>
     </Route>
   </Router>
   ), document.getElementById('root')
