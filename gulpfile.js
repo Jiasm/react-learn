@@ -11,6 +11,8 @@ const jsFilePath = ['src/*.js']
 const cssFilePath = ['src/**/*.scss']
 const tplFilePath = ['src/*.html']
 
+const watchPath = ['src/*.html', 'src/**/*.js', 'src/**/*.scss']
+
 const jsOutput = 'public'
 const cssOutput = 'src/'
 const tplOutput = 'views'
@@ -47,5 +49,5 @@ gulp.task('build-html', () =>
 )
 
 gulp.task('watch', () => {
-  gulp.watch(['src/**/*.html', 'src/**/*.js', 'src/**/*.scss'], ['default'])
+  gulp.watch(watchPath, ['default'])
 })
