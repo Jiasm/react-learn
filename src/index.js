@@ -1,6 +1,6 @@
 import React from 'react'
 import {render} from 'react-dom'
-import Title from './components/title'
+import Title from './components/Title'
 import Tab from './components/Tab'
 import { hashHistory, Router, Route, IndexRoute, Link, withRouter } from 'react-router'
 

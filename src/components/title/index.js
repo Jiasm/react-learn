@@ -14,7 +14,7 @@ class Title extends Component {
 }
 
 Title.propTypes = {
-  text: PropTypes.number.isRequired
+  text: PropTypes.string.isRequired
 }
 
 export default Title
