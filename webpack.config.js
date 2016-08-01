@@ -2,8 +2,6 @@ let webpack = require('webpack')
 let path = require('path')
 let fs = require('fs')
 
-let vendors = ['react', 'react-dom', 'react-router']
-
 const entryPath = path.resolve(__dirname, 'src')
 
 function getEntries (globPath, otherOpt) {
@@ -23,9 +21,9 @@ function getEntries (globPath, otherOpt) {
 }
 
 module.exports = {
-  entry: getEntries(entryPath, {vendors}),
+  entry: getEntries(entryPath),
   output: {
-    path: path.resolve(__dirname, 'public'),
+    path: path.resolve(__dirname, '../public/'),
     filename: '[name].js'
   },
   module: {
@@ -40,14 +38,15 @@ module.exports = {
     ]
   },
   plugins: [
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendors',
-      filename: 'vendors.js'
-    }),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false
-      }
+    new webpack.DllReferencePlugin({
+      context: __dirname,
+      manifest: require('./manifest.json')
     })
-  ]
+    // new webpack.optimize.UglifyJsPlugin({
+    //   compress: {
+    //     warnings: false
+    //   }
+    // })
+  ],
+  devtool: 'source-map'
 }
