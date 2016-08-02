@@ -10,7 +10,7 @@ const vendors = [
 
 module.exports = {
   output: {
-    path: path.resolve(__dirname, '../public'),
+    path: path.resolve(__dirname, 'public'),
     filename: '[name].js',
     library: '[name]'
   },
